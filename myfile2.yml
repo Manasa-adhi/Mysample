@@ -1,0 +1,17 @@
+name: Build-job
+
+on:
+  push:
+    - master
+jobs:
+   Build-job:
+      runs-on: ubuntu-latest
+      name: Making builds
+      steps:
+        - uses: action/checkout@v1
+        - name: Install httpd
+          uses: action/setup-node@v1
+          with:
+                  node-version: latest
+        - run: apt install httpd      
+         
